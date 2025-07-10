@@ -1,71 +1,141 @@
-<section id="waitlist" class="max-w-md mx-auto text-center mt-12">
-  <h2 class="text-2xl font-semibold mb-4">Join the Waitlist</h2>
-  <p class="text-gray-400 mb-6">Be the first to experience AffectOS when we launch.</p>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AffectOS – The Operating System of Human Emotion</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+      .spinner {
+        border: 3px solid rgba(255, 255, 255, 0.3);
+        border-top: 3px solid white;
+        border-radius: 50%;
+        width: 18px;
+        height: 18px;
+        animation: spin 1s linear infinite;
+        display: inline-block;
+        vertical-align: middle;
+        margin-left: 8px;
+      }
+      @keyframes spin {
+        to { transform: rotate(360deg); }
+      }
+    </style>
+  </head>
+  <body class="bg-gray-900 text-white font-sans">
+    <!-- Hero Section -->
+    <section class="min-h-screen flex flex-col justify-center items-center text-center px-6">
+      <h1 class="text-5xl font-bold mb-4">AffectOS</h1>
+      <p class="text-xl text-gray-300 mb-6">The Operating System of Human Emotion.</p>
+      <a href="#waitlist" class="bg-indigo-600 hover:bg-indigo-700 text-white py-3 px-6 rounded-xl transition">Join the Waitlist</a>
+    </section>
 
-  <form id="waitlist-form" action="https://formspree.io/f/xldnqeod" method="POST" class="space-y-4">
-    <input
-      type="email"
-      name="email"
-      required
-      placeholder="you@example.com"
-      class="w-full px-4 py-3 rounded-md text-gray-800"
-    />
-    <button
-      id="submit-btn"
-      type="submit"
-      class="w-full bg-indigo-600 hover:bg-indigo-700 py-3 rounded-md text-white font-semibold transition"
-    >
-      Join Now
-      <span id="spinner" class="spinner hidden"></span>
-    </button>
-  </form>
+    <!-- About Section -->
+    <section class="py-16 px-6 max-w-4xl mx-auto">
+      <h2 class="text-3xl font-semibold mb-4">What is AffectOS?</h2>
+      <p class="text-gray-300 text-lg leading-relaxed">
+        AffectOS is an API-first platform that simulates emotional intelligence, human decision-making, and behavioral reactions. It lets developers build products that understand, adapt to, and feel like real people.
+      </p>
+    </section>
 
-  <p id="success-message" class="hidden text-green-400 mt-6 font-semibold">
-    Thanks for joining the waitlist!
-  </p>
-  <p id="error-message" class="hidden text-red-500 mt-4 font-semibold"></p>
+    <!-- Features Section -->
+    <section class="bg-gray-800 py-16 px-6">
+      <div class="max-w-5xl mx-auto grid md:grid-cols-3 gap-8">
+        <div>
+          <h3 class="text-xl font-semibold mb-2">Emotion Simulation</h3>
+          <p class="text-gray-400">Model emotional reactions based on input, persona, and tone.</p>
+        </div>
+        <div>
+          <h3 class="text-xl font-semibold mb-2">Decision Engine</h3>
+          <p class="text-gray-400">Predict human-like choices in ethical or ambiguous scenarios.</p>
+        </div>
+        <div>
+          <h3 class="text-xl font-semibold mb-2">Human-in-the-Loop</h3>
+          <p class="text-gray-400">Route high-stakes or emotional queries to real vetted humans.</p>
+        </div>
+      </div>
+    </section>
 
-  <p class="text-xs text-gray-500 mt-4">We’ll never spam you. Unsubscribe anytime.</p>
-</section>
+    <!-- Waitlist Section -->
+    <section id="waitlist" class="max-w-md mx-auto text-center mt-12">
+      <h2 class="text-2xl font-semibold mb-4">Join the Waitlist</h2>
+      <p class="text-gray-400 mb-6">Be the first to experience AffectOS when we launch.</p>
 
-<script>
-  const form = document.getElementById('waitlist-form');
-  const submitBtn = document.getElementById('submit-btn');
-  const spinner = document.getElementById('spinner');
-  const successMessage = document.getElementById('success-message');
-  const errorMessage = document.getElementById('error-message');
+      <form id="waitlist-form" action="https://formspree.io/f/xldnqeod" method="POST" class="space-y-4">
+        <input type="email" name="email" required placeholder="you@example.com" class="w-full px-4 py-3 rounded-md text-gray-800" />
+        <button id="submit-btn" type="submit" class="w-full bg-indigo-600 hover:bg-indigo-700 py-3 rounded-md text-white font-semibold transition">
+          Join Now
+          <span id="spinner" class="spinner hidden"></span>
+        </button>
+      </form>
 
-  form.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    errorMessage.classList.add('hidden');
-    submitBtn.disabled = true;
-    spinner.classList.remove('hidden');
+      <p id="success-message" class="hidden text-green-400 mt-6 font-semibold">Thanks for joining the waitlist!</p>
+      <p id="error-message" class="hidden text-red-500 mt-4 font-semibold"></p>
+      <p class="text-xs text-gray-500 mt-4">We’ll never spam you. Unsubscribe anytime.</p>
+    </section>
 
-    const formData = new FormData(form);
-    const action = form.getAttribute('action');
+    <!-- Use Cases Section -->
+    <section class="py-16 px-6 max-w-5xl mx-auto">
+      <h2 class="text-2xl font-semibold mb-6">Use Cases</h2>
+      <ul class="text-gray-300 space-y-4 list-disc list-inside">
+        <li>Empathetic chatbots for mental health & support platforms</li>
+        <li>Game characters with real emotional depth</li>
+        <li>UX research tools that understand human responses</li>
+        <li>Ethical simulations for AI decision-making</li>
+      </ul>
+    </section>
 
-    try {
-      const response = await fetch(action, {
-        method: 'POST',
-        body: formData,
-        headers: { 'Accept': 'application/json' },
+    <!-- Footer -->
+    <footer class="text-center py-6 text-gray-500 text-sm">
+      &copy; 2025 AffectOS. All rights reserved.
+    </footer>
+
+    <!-- Script -->
+    <script>
+      document.querySelector('a[href="#waitlist"]').addEventListener('click', e => {
+        e.preventDefault();
+        document.getElementById('waitlist').scrollIntoView({ behavior: 'smooth' });
       });
 
-      if (response.ok) {
-        form.reset();
-        form.style.display = 'none';
-        successMessage.classList.remove('hidden');
-      } else {
-        const data = await response.json();
-        errorMessage.textContent = data.error || 'Oops! There was a problem submitting your form.';
-        errorMessage.classList.remove('hidden');
-      }
-    } catch (error) {
-      errorMessage.textContent = 'Oops! There was a problem submitting your form.';
-      errorMessage.classList.remove('hidden');
-    } finally {
-      submitBtn.disabled = false;
-      spinner.classList.add('hidden');
-    }
-  });
-</script>
+      const form = document.getElementById('waitlist-form');
+      const submitBtn = document.getElementById('submit-btn');
+      const spinner = document.getElementById('spinner');
+      const successMessage = document.getElementById('success-message');
+      const errorMessage = document.getElementById('error-message');
+
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        errorMessage.classList.add('hidden');
+        submitBtn.disabled = true;
+        spinner.classList.remove('hidden');
+
+        const formData = new FormData(form);
+        const action = form.getAttribute('action');
+
+        try {
+          const response = await fetch(action, {
+            method: 'POST',
+            body: formData,
+            headers: { 'Accept': 'application/json' },
+          });
+
+          if (response.ok) {
+            form.reset();
+            form.style.display = 'none';
+            successMessage.classList.remove('hidden');
+          } else {
+            const data = await response.json();
+            errorMessage.textContent = data.error || 'Oops! There was a problem submitting your form.';
+            errorMessage.classList.remove('hidden');
+          }
+        } catch (error) {
+          errorMessage.textContent = 'Oops! There was a problem submitting your form.';
+          errorMessage.classList.remove('hidden');
+        } finally {
+          submitBtn.disabled = false;
+          spinner.classList.add('hidden');
+        }
+      });
+    </script>
+  </body>
+</html>
